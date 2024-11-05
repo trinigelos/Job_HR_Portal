@@ -21,14 +21,12 @@ const HomePage = () => {
   // Handlers to navigate to signup and login
   function handleToggleToSignup() {
     setIsSignupActive(true); // Update the style
-      console.log("pressed")
       navigate(PATHS.SIGNUPPAGE); // Update the URL
   }
 
   function handleToggleToLogin() {
     setIsSignupActive(false); // Update the style
       navigate(PATHS.LOGINPAGE); // Update the URL
-      console.log("pressed")
   }
 
   return (

@@ -3,10 +3,13 @@ import React, { useState } from "react";
 import { login } from "../services/auth";
 import { useNavigate } from "react-router-dom";
 import "./Signup";
+import "./Login.css"
+
 import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
 
 export default function LogIn({ authenticate }) {
+
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -15,6 +18,7 @@ export default function LogIn({ authenticate }) {
   const { username, password, email } = form;
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -35,31 +39,31 @@ export default function LogIn({ authenticate }) {
       }
       USER_HELPERS.setUserToken(res.data.accessToken);
       authenticate(res.data.user);
-      navigate(PATHS.HOMEPAGE);
+      navigate(PATHS.PROTECTEDPAGE);
     });
   }
 
   return (
     <div className="form-control signin-form background-login">
       <form onSubmit={handleFormSubmission} className="signup__form">
-      <h2 className='h2-form'>Ingresa</h2>
-      <label htmlFor="input-username">Usuario</label>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+
+        <h2 className='h2-form'>Ingresa</h2>
         <input
           id="input-username"
           type="text"
           name="username"
-          placeholder="username"
+          placeholder="Usuario o Email"
           value={username}
           onChange={handleInputChange}
           required
         />
 
-        <label htmlFor="input-password">Contraseña</label>
         <input
           id="input-password"
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Contraseña"
           value={password}
           onChange={handleInputChange}
           required
@@ -68,12 +72,12 @@ export default function LogIn({ authenticate }) {
 
         {error && (
           <div className="error-block">
-            <p>There was an error submiting the form:</p>
+            <p>Hubo un error, intenta nuevamente</p>
             <p>{error.message}</p>
           </div>
         )}
 
-        <button className="button__submit" type="submit">
+        <button className="signin-btn" type="submit">
           Ingresa
         </button>
       </form>

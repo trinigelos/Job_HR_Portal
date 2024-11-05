@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(255, 255, 255);
+}
 .whole-container {
     display: flex;
     justify-content: center;
@@ -39,10 +44,12 @@
     background-color: #0596683a;
 }
 
+/* crea tu cuenta h2 */
 .h2-form {
     font-size: 2rem;
 }
 
+/* signup - login form */
 .form-control form {
     display: flex;
     flex-direction: column;

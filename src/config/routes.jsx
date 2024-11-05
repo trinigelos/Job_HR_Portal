@@ -1,7 +1,5 @@
-import { Route, Navigate } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import Login from "../pages/LogIn";
-import Signup from "../pages/Signup";
+import { Navigate } from "react-router-dom";
+
 import ProtectedPage from "../pages/ProtectedPage";
 import * as PATHS from "../utils/paths";
 
