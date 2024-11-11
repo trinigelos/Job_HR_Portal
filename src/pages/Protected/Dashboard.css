@@ -1,0 +1,134 @@
+.dashboard-container {
+    display: flex;
+    margin: 0;
+    background-color: #acadae00;
+    overflow: auto;
+    width: 100%;
+  
+}
+
+.sidebar {
+    height: 100%;
+ 
+} 
+
+.main-content {
+    margin: 0;
+    padding: 0;
+    width: 80vw;
+}
+
+.dashboardDiv {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.btnCreateJob {
+    background-color: #1c418c;
+}
+
+/* jobs container- jobstab */
+.trabajos-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(290px, 1fr));
+    padding: 1rem;
+    grid-gap: 1rem;
+    width: 75vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.trabajos-full-container {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar{
+    width: 75vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* RESPONSIVE MEDIA*/
+
+/* Tablets and large phones (landscape mode) */
+@media (max-width: 1024px) {
+    .trabajos-dashboard {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    
+    }
+
+    .jobsContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60%;
+        height: auto;
+        position: relative; 
+        margin: 0;
+    }
+
+     .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .trabajos-dashboard {
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(290px, 1fr)
+        ); 
+        width: 90%;
+    }
+.searchbar{
+    width: auto;
+}
+}
+
+/* Smaller smartphones */
+@media (max-width: 480px) {
+
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+}   
+
+
+.sidebar{
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+
+}
+
+.nav-items{
+    display: flex;
+}
+
+    .nav-items > * {
+    padding: 0.8rem; 
+    font-size: 0.9rem; 
+
+    }
+
+    .trabajos-dashboard {
+        grid-template-columns: 1fr; 
+        margin-top: 1rem;
+    }
+}

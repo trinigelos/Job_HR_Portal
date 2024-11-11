@@ -8,7 +8,7 @@ const routes = (props) => {
   return [
    
     {
-      path: PATHS.PROTECTEDPAGE,
+      path: "/dashboard/*",
       element: user ? (
         <ProtectedPage {...props} />
       ) : (
@@ -19,7 +19,7 @@ const routes = (props) => {
     // Default route to handle unmatched paths (redirect to homepage)
     {
       path: "*",
-      element: <Navigate to={PATHS.HOMEPAGE} />,
+      element: <Navigate to={PATHS.LOGINPAGE} />,
     },
   ];
 };

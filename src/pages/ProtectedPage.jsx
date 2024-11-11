@@ -1,11 +1,25 @@
 import React from "react";
+import { Outlet, Route, Routes } from "react-router-dom";
+import Sidebar from "./Protected/SideBar";
+import "./Protected/Dashboard.css"
+import SearchBar from "../components/SearchBar/SearchBar";
 
-const ProtectedPage = () => {
-  return (
-    <div>
-      <h1>This page is hyper protected!</h1>
-    </div>
-  );
+
+const ProtectedPage = ({user, handleLogout}) => {
+    return (
+        <div className="dashboard-container">
+            {/* Sidebar Component */}
+                <Sidebar handleLogout={handleLogout}/>
+
+            {/* Main Content Area */}
+            <div className="main-content">
+          <SearchBar /> {/* Nested Routes Content */}
+          
+   
+          <Outlet />
+            </div>
+        </div>
+    );
 };
 
 export default ProtectedPage;

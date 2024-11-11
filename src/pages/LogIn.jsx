@@ -4,8 +4,6 @@ import { login } from "../services/auth";
 import { useNavigate } from "react-router-dom";
 import "./Signup";
 import "./Login.css"
-
-import * as PATHS from "../utils/paths";
 import * as USER_HELPERS from "../utils/userToken";
 
 export default function LogIn({ authenticate }) {
@@ -39,7 +37,7 @@ export default function LogIn({ authenticate }) {
       }
       USER_HELPERS.setUserToken(res.data.accessToken);
       authenticate(res.data.user);
-      navigate(PATHS.PROTECTEDPAGE);
+      navigate("/dashboard/*");
     });
   }
 
@@ -73,7 +71,6 @@ export default function LogIn({ authenticate }) {
         {error && (
           <div className="error-block">
             <p>Hubo un error, intenta nuevamente</p>
-            <p>{error.message}</p>
           </div>
         )}
 

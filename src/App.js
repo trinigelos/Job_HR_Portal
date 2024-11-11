@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState,  } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 // import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/LogIn";
+import ProtectedPage from "./pages/ProtectedPage";
+import JobList from "./pages/Protected/JobList";
+import JobPostForm from "./pages/Protected/CRUD/JobPostForm";
 import { getLoggedIn, logout } from "./services/auth";
 import routes from "./config/routes";
 import * as USER_HELPERS from "./utils/userToken";
 import * as PATHS from "./utils/paths";
+import JobDetail from "./pages/Protected/JobDetail";
+import JobEditForm from "./pages/Protected/CRUD/JobEditForm";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const accessToken = USER_HELPERS.getUserToken();
@@ -28,11 +34,15 @@ export default function App() {
     });
   }, []);
 
+  // handling logout 
   function handleLogout() {
     const accessToken = USER_HELPERS.getUserToken();
     if (!accessToken) {
       setUser(null);
-      return setIsLoading(false);
+      setIsLoading(false);
+      navigate(PATHS.LOGINPAGE)
+      return;
+      
     }
     setIsLoading(true);
     logout(accessToken).then((res) => {
@@ -60,9 +70,20 @@ export default function App() {
          {/* Parent Route for HomePage */}
          <Route path={PATHS.HOMEPAGE} element={<HomePage user={user} authenticate={authenticate} handleLogout={handleLogout} />}>
           {/* Nested Signup and Login Routes */}
-          <Route path="auth/signup" element={<Signup authenticate={authenticate} />} />
-          <Route path="auth/login" element={<Login authenticate={authenticate} />} />
+          <Route path={PATHS.SIGNUPPAGE} element={<Signup authenticate={authenticate} />} />
+          <Route path={PATHS.LOGINPAGE} element={<Login authenticate={authenticate} />} />
         </Route>
+
+    {/* Dashboard and Nested Routes */}
+    <Route path="dashboard/" element={<ProtectedPage handleLogout={handleLogout} />}>
+  <Route path= "jobs" element={<JobList />} />
+  <Route path="job/:jobId" element={<JobDetail />} />
+  <Route path="edit-job/:jobId" element={<JobEditForm />} />
+  <Route path="post-job" element={<JobPostForm />} />
+</Route>
+
+
+        {/* dynamic routing */}
         {routes({ user, authenticate, handleLogout }).map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
