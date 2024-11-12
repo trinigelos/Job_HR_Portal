@@ -1,14 +1,24 @@
 // JobDetail.jsx
 import React, {useState, useEffect} from "react";
-import {useParams, Link} from "react-router-dom";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import {formatDate} from "../../components/components";
 import {JobDescription} from "../../components/components";
-import {getJobPost} from './CRUD/JobPostService';
+import { getJobPost, deleteJobPost } from './CRUD/JobPostService';
+import Modal from "../../components/Modal";
 
 const JobDetail = () => {
     const {jobId} = useParams(); // Extract jobId from the route parameters
-    const [job,
-        setJob] = useState(null);
+    const [job, setJob] = useState(null);
+
+    //to display Modals of messages whenever actions get done
+    const [showModal, setShowModal] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+
+
+  // To display delete confirmation modal
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+
+    const navigate = useNavigate();
 
     // Fetch job details from the backend
     useEffect(() => {
@@ -23,8 +33,47 @@ const JobDetail = () => {
         fetchJob();
     }, [jobId]);
 
+    // Handle the close button to go back without reloading
+  const handleClose = () => {
+    navigate(-1); 
+    };
+    
+
+     // Handle delete job post
+  const handleDelete = async () => {
+    try {
+        await deleteJobPost(jobId); 
+
+        closeDeleteConfirmation();
+        //display modal that has succesfully deleted the job
+        setShowModal(true);
+        setModalMessage('Eliminado correctamente');
+    } catch (error) {
+      console.error("Failed to delete job post", error);
+    }
+    };
+
+
+    // closes Modal after deleting
+    const closeModal = () => {
+        setShowModal(false);
+        navigate("/dashboard/jobs"); 
+
+    };
+
+      // Modal to confirm deleting
+      const confirmDelete = () => {
+        setShowDeleteConfirmation(true); 
+      };
+    
+    //whenever ok gets clicked
+    const closeDeleteConfirmation = () => {
+        setShowDeleteConfirmation(false); 
+      };        
+    
+
     if (!job) {
-        return <div>Loading job details...</div>;
+        return <div>Parece que este trabajo no está disponible, lo sentimos.</div>;
     }
 
     return (
@@ -35,9 +84,14 @@ const JobDetail = () => {
                         <span class="material-symbols-outlined edit-btn">edit</span>
                     </button>
                 </Link>
-                <span class="material-symbols-outlined close-btn">close</span>
-                <span class="material-symbols-outlined trash-btn">delete</span>
-            </div>
+                <button onClick={handleClose} className="close-job-button">
+          <span className="material-symbols-outlined close-btn">close</span>
+        </button>
+        <button onClick={confirmDelete} className="delete-job-button">
+          <span className="material-symbols-outlined trash-btn">delete</span>
+                </button>
+              
+             </div>
             <h2>{job.title}</h2>
             <p>{job.company}</p>
             <p>
@@ -72,6 +126,27 @@ const JobDetail = () => {
             <p>
                 <strong>Publicado:</strong>
                 {formatDate(job.createdAt)}</p>
+            
+            {/* Confirm Delete Modal */}
+      {showDeleteConfirmation && (
+        <Modal
+          message="¿Estás seguro de que deseas eliminar este trabajo?"
+          onClose={closeDeleteConfirmation}
+          actions={
+            <>
+              <button onClick={handleDelete} className="confirm-delete-button">
+                Sí, eliminar
+              </button>
+              <button onClick={closeDeleteConfirmation} className="cancel-delete-button">
+                Cancelar
+              </button>
+            </>
+          }
+        />
+      )}
+
+      {/* Success Modal */}
+      {showModal && <Modal message={modalMessage} onClose={closeModal} />}
         </div>
     );
 };
