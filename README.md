@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Project Name: Job Search Web Application (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the **frontend** repository for a job search web application, built with React, featuring user authentication, role-based views, and a nested routing system for managing the application's layout and flow effectively.
 
-## Available Scripts
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Application Structure](#application-structure)
+- [Routing Overview](#routing-overview)
+- [Problem and Solution](#problem-and-solution)
+- [Running the Application](#running-the-application)
 
-In the project directory, you can run:
+## Project Overview
+This frontend application provides the user interface for job seekers and HR managers. It supports user registration, login, job viewing, and management functionalities. It features a clean and organized structure with explicit handling of routing and layout components.
 
-### `yarn start`
+## Technologies Used
+- **React**: Main framework for building the user interface.
+- **React Router v6**: For routing, including nested routes and protected pages.
+- **Axios**: For handling HTTP requests.
+- **CSS**: For styling the application.
+- **JavaScript**: The primary programming language used.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup Instructions
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   ```
+2. **Navigate to the project folder**:
+   ```bash
+   cd job-search-frontend
+   ```
+3. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+4. **Create a `.env` file** to store your environment variables (e.g., `REACT_APP_SERVER_URL`).
+5. **Run the application**:
+   ```bash
+   npm start
+   ```
+6. The application should run on `http://localhost:3000/`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Application Structure
+- **`src/components/`**: Reusable UI components such as Navbar and LoadingComponent.
+- **`src/pages/`**: Pages like `HomePage`, `Signup`, and `Login`.
+- **`src/utils/`**: Utility files such as constants (`paths.js`) and helper functions (`userToken.js`).
+- **`src/services/`**: Services to handle API calls, such as `auth.js`.
+- **`src/config/routes.jsx`**: Defines all the routes used in the application.
+- **`App.js`**: The main application file where the Routes are declared and user state is managed.
 
-### `yarn test`
+## Routing Overview
+The application uses **React Router** to define various routes, including nested routes for signup and login pages inside the homepage. The updated `App.js` defines routes explicitly, including:
+- **`/` (HomePage)**: Contains nested routes for `Signup` (`/auth/signup`) and `Login` (`/auth/login`).
+- **Protected Routes**: Pages like `/protected` which require user authentication.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Nested Routing Issue and Solution
+Initially, there were issues implementing nested routes using a dynamically generated configuration in `routes.jsx`. These issues included rendering problems and the inability to match routes correctly. The problem was resolved by explicitly defining nested routes directly in `App.js`. This provided a clear parent-child relationship for React Router, allowing the nested routes (`Signup` and `Login`) to render properly within the `HomePage` component.
 
-### `yarn build`
+For more information on this problem and how it was solved, please refer to the `nested_routes_issue.md` file.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running the Application
+1. After cloning the repository and installing dependencies, run:
+   ```bash
+   npm start
+   ```
+2. Navigate to `http://localhost:3000` to view the application.
+3. To switch between **signup** and **login**, use the toggle buttons on the homepage.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Feel free to report issues or contribute to improve the application's structure and functionality!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
