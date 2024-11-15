@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Modal from '../../../components/Modal';
 import { postJob } from './JobPostService';
 import JobForm from './JobForm';
@@ -6,6 +7,8 @@ import JobForm from './JobForm';
 const JobPostForm = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [newJobId, setNewJobId] = useState(null);
+  const navigate = useNavigate();
 
   // Define initial state for the form
   const initialState = {
@@ -30,9 +33,11 @@ const JobPostForm = () => {
 
     try {
       // Use service function to post a new job
-      await postJob(jobData);
+      const createdJob = await postJob(jobData);
       setShowModal(true);
       setModalMessage('Publicado correctamente.');
+      setNewJobId(createdJob._id); // Save the ID of the new job
+
       // Reset the form to its initial state
       setJobData(initialState);
     } catch (error) {
@@ -49,6 +54,10 @@ const JobPostForm = () => {
   // Close the modal dialog
   const closeModal = () => {
     setShowModal(false);
+       // Navigate to the newly created job detail page if newJobId is set
+       if (newJobId) {
+        navigate(`/dashboard/job/${newJobId}`);
+      }
   };
 
   return (

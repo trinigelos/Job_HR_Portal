@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Modal from '../../../components/Modal';
 import { getJobPost, updateJobPost } from './JobPostService';
 import JobForm from './JobForm';
+import "./JobForms.css"
 
 const JobEditForm = () => {
   const { jobId } = useParams(); // Get jobId from the URL parameters
@@ -10,6 +11,8 @@ const JobEditForm = () => {
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
   const [modalMessage, setModalMessage] = useState(''); // State to store modal message
   const navigate = useNavigate();
+
+
   // Fetch job details to prefill the form when component mounts
   useEffect(() => {
     if (jobId) {
@@ -54,9 +57,17 @@ const JobEditForm = () => {
   // Show a loading message if the job data has not been fetched yet
   if (!jobData) return <div>Loading...</div>;
 
+  const handleUndo = () => {
+    navigate(`/dashboard/job/${jobId}`)
+ }
+
   // Render the form and modal component
   return (
     <div>
+      <div className="actionbutton">
+      <span className="material-icons actionbtn" onClick={handleUndo} >undo</span>
+
+      </div>
       <JobForm
         jobData={jobData}
         handleChange={handleChange}

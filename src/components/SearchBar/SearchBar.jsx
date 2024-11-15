@@ -1,33 +1,47 @@
-import React, { useState, useCallback } from 'react';
-import { debounce } from 'lodash'; // Using lodash to debounce the search
+import React, { useState, useCallback, useContext } from 'react';
+import { debounce } from 'lodash';
+import { SearchContext } from './SearchContext'; // Import SearchContext
 import "./SearchBar.css";
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar() {
+    // Local state for the search form
     const [form, setForm] = useState({
         searchTerm: '',
         location: ''
     });
 
-    // Debounced onSearch to avoid frequent function calls while typing
-    const debouncedOnSearch = useCallback(
-        debounce((updatedSearchTerm, updatedLocation) => {
-            onSearch(updatedSearchTerm, updatedLocation);
-        }, 300), // Adjust delay as necessary
-        [onSearch]
+    // Destructure the setter functions from SearchContext
+    const { setSearchTerm, setLocation } = useContext(SearchContext);
+
+    // Debounced function to update the search context
+    // This function will delay updates until the user stops typing
+    const debouncedSearch = useCallback(
+        debounce((searchTerm, location) => {
+            setSearchTerm(searchTerm);
+            setLocation(location);
+        }, 100), // Adjust delay to control responsiveness
+        [setSearchTerm, setLocation]
     );
 
+    // Handle changes to the input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setForm(prev => {
-            const updatedForm = { ...prev, [name]: value };
-            debouncedOnSearch(updatedForm.searchTerm, updatedForm.location);
-            return updatedForm;
+
+        // Update local form state
+        setForm((prev) => {
+            const updatedForm = { ...prev, [name]: value }; // Get updated form values
+            
+            // Debounced update to the context values
+            debouncedSearch(updatedForm.searchTerm, updatedForm.location);
+
+            return updatedForm; // Return the updated form state
         });
     };
 
+    // Handle clicking the search button for an immediate search
     const handleSearch = () => {
-        // Trigger search immediately when clicking the button
-        onSearch(form.searchTerm, form.location);
+        setSearchTerm(form.searchTerm);
+        setLocation(form.location);
     };
 
     return (
@@ -41,7 +55,7 @@ export default function SearchBar({ onSearch }) {
                         className="search-input"
                         placeholder="Empleo..."
                         value={form.searchTerm}
-                        onChange={handleChange}
+                        onChange={handleChange} // Update state on change
                     />
 
                     {/* Location Input */}
@@ -51,7 +65,7 @@ export default function SearchBar({ onSearch }) {
                         className="location-input"
                         placeholder="Ubicación"
                         value={form.location}
-                        onChange={handleChange}
+                        onChange={handleChange} // Update state on change
                     />
 
                     {/* Search Button */}

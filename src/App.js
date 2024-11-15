@@ -1,5 +1,5 @@
 import { useEffect, useState,  } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 // import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
@@ -70,6 +70,8 @@ export default function App() {
          {/* Parent Route for HomePage */}
          <Route path={PATHS.HOMEPAGE} element={<HomePage user={user} authenticate={authenticate} handleLogout={handleLogout} />}>
           {/* Nested Signup and Login Routes */}
+          <Route index element={<Navigate to={PATHS.LOGINPAGE} />} /> {/* Redirect root to Login by default */}
+
           <Route path={PATHS.SIGNUPPAGE} element={<Signup authenticate={authenticate} />} />
           <Route path={PATHS.LOGINPAGE} element={<Login authenticate={authenticate} />} />
         </Route>

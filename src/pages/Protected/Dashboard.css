@@ -4,16 +4,13 @@
     background-color: #acadae00;
     overflow: auto;
     width: 100%;
+height: auto;
   
 }
 
-.sidebar {
-    height: 100%;
- 
-} 
+
 
 .main-content {
-    margin: 0;
     padding: 0;
     width: 80vw;
 }
@@ -21,8 +18,12 @@
 .dashboardDiv {
     display: flex;
     flex-direction: column;
-    position: relative;
+
     margin-top: 2rem;
+}
+.main-content{
+    /* margin: 0 0 0 20vw; */
+
 }
 
 .btnCreateJob {
@@ -83,11 +84,15 @@
         margin: 0;
     }
 
-     .main-content {
+
+    .main-content {
         margin-left: 0;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-
     .trabajos-dashboard {
         grid-template-columns: repeat(
             auto-fill,

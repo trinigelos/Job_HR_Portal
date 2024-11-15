@@ -7,6 +7,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 6rem;
+    
+
 }
 
 .login-container {
@@ -16,7 +19,6 @@ body {
     height: 480px;
     position: relative;
     overflow-x: hidden;
-    margin-top: 1.5rem;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 15px 15px rgba(0, 0, 0, 0.22);
 }
 
@@ -260,8 +262,13 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-    .login-container {
+    .whole-container{
+        margin-top: 0;
         height: 100vh;
+
+    }
+  
+    .login-container {
         display: flex;
         flex-direction: column;
     }
@@ -269,7 +276,7 @@ body {
     .forms-container {
         order: 2;
         width: 100%;
-        height: 50vh;
+        height: 100vh;
     }
 
     .form-control {
@@ -292,6 +299,11 @@ body {
     .intro-control {
         position: absolute;
         height: 40vh;
+    }
+
+    .form-control .signin-form .background-login{
+        height: 100%;
+        padding-bottom: 3rem;
     }
 
     .change .forms-container .form-control.signup-form {

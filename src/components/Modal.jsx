@@ -1,6 +1,6 @@
 // components/Modal.jsx
 import React from 'react';
-// import "./CRUD/JobPost.css";
+import "./Modal.css";
 
 const Modal = ({ message, onClose, actions }) => {
     return (

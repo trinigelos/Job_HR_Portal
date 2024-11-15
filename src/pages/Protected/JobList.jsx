@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { getAllJobPosts } from './CRUD/JobPostService'; // Import the service function
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { getAllJobPosts } from './CRUD/JobPostService'; 
 import "./JobList.css";
+import { SearchContext } from "../../components/SearchBar/SearchContext";
+import { JobDescription } from "../../components/components";
 
 const JobList = () => {
   const [jobPosts, setJobPosts] = useState([]);
-  const location = useLocation(); // Helps us access the current location and its state
+  const { searchTerm, location } = useContext(SearchContext); 
 
-  // Fetch job posts from the backend
-  const fetchJobPosts = async (searchTerm = '', location = '') => {
+
+ // Fetch job posts from the backend
+ useEffect(() => {
+  const fetchJobPosts = async () => {
     try {
       const data = await getAllJobPosts(searchTerm, location); // Use the imported function to fetch data
       // Sort posts by createdAt date in descending order
@@ -21,21 +25,9 @@ const JobList = () => {
     }
   };
 
-  useEffect(() => {
-    fetchJobPosts();
+  fetchJobPosts();
+}, [searchTerm, location]);
 
-    // Restore scroll position if present in state
-    if (location.state?.scrollPosition) {
-        window.scrollTo(0, location.state.scrollPosition);
-    }
-}, [location.state]);
-
-  //handle click whenever a job gets opened
-  const handleJobClick = () => {
-    // Save the current scroll position in location state before navigating away
-    const scrollPosition = window.scrollY;
-    window.history.replaceState({ scrollPosition }, ""); // Save in browser's history state
-};
 
   return (
     <div className="jobs-container">
@@ -43,13 +35,14 @@ const JobList = () => {
         <Link to={`/dashboard/job/${job._id}`}
           key={job._id}
           className="job-link"
-        onClick={handleJobClick}
         >
           <div className="job-post-preview">
             <h3>{job.title}</h3>
             <p>{job.company}</p>
             <p><strong>Ubicación:</strong> {job.location}</p>
             <p><strong>Disponibilidad:</strong> {job.employmentType}</p>
+            <p><strong>Descripción: </strong>          <JobDescription description={job.description.slice(0,300)}/></p>
+                 
           </div>
         </Link>
       ))}

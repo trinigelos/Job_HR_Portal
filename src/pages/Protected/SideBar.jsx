@@ -13,7 +13,7 @@ const Sidebar = ({handleLogout}) => {
                             to="/dashboard/jobs"
                             className={({isActive}) => (isActive
                             ? "active-tab"
-                            : "not-active")}>
+                            : "not-active sidelinkHover")}>
                             Trabajos
                         </NavLink>
 
@@ -23,14 +23,14 @@ const Sidebar = ({handleLogout}) => {
                             to="/dashboard/post-job"
                             className={({isActive}) => (isActive
                             ? "active-tab"
-                            : "not-active")}>
+                            : "not-active sidelinkHover")}>
                             Publicar
                         </NavLink>
                     </div>
                     <div className="navlinks-sidebar">
-                        <button onClick={handleLogout} className="logout-button">
+                        <div onClick={handleLogout} className="logout-button sidelinkHover">
                             Logout
-                        </button>
+                        </div>
                     </div>
 
                 </div>

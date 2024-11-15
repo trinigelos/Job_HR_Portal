@@ -5,7 +5,7 @@ import {formatDate} from "../../components/components";
 import {JobDescription} from "../../components/components";
 import { getJobPost, deleteJobPost } from './CRUD/JobPostService';
 import Modal from "../../components/Modal";
-
+import "./JobDetail.css"
 const JobDetail = () => {
     const {jobId} = useParams(); // Extract jobId from the route parameters
     const [job, setJob] = useState(null);
@@ -35,8 +35,8 @@ const JobDetail = () => {
 
     // Handle the close button to go back without reloading
   const handleClose = () => {
-    navigate(-1); 
-    };
+    navigate("/dashboard/jobs"); 
+  };
     
 
      // Handle delete job post
@@ -80,37 +80,41 @@ const JobDetail = () => {
         <div className="job-detail-container">
             <div className="actionbuttons">
             <Link to={`/dashboard/edit-job/${job._id}`}>
-            <button className="edit-job-button">
-                        <span class="material-symbols-outlined edit-btn">edit</span>
+            <button className="edit-job-button actionbtn">
+                        <span class="material-symbols-outlined ">edit</span>
                     </button>
-                </Link>
-                <button onClick={handleClose} className="close-job-button">
-          <span className="material-symbols-outlined close-btn">close</span>
+          </Link>
+
+             <button onClick={confirmDelete} className=" actionbtn">
+          <span className="material-symbols-outlined ">delete</span>
+          </button>
+          
+                <button onClick={handleClose} className=" actionbtn">
+          <span className="material-symbols-outlined ">close</span>
         </button>
-        <button onClick={confirmDelete} className="delete-job-button">
-          <span className="material-symbols-outlined trash-btn">delete</span>
-                </button>
+     
               
-             </div>
+        </div>
+        <div className="whole-job-div">
             <h2>{job.title}</h2>
             <p>{job.company}</p>
             <p>
-                <strong>Ubicación:</strong>
+                <strong>Ubicación: </strong>
                 {job.location}</p>
             <p>
-                <strong>Disponibilidad:</strong>
+                <strong>Disponibilidad: </strong>
                 {job.employmentType}</p>
             <p>
-                <strong>Modalidad:</strong>
+                <strong>Modalidad: </strong>
                 {job.employmentStyle}</p>
             <p>
-                <strong>Descripción:</strong>
+                <strong>Descripción: </strong>
                 <JobDescription description={job.description}/></p>
             {job.salaryRange && <p>
-                <strong>Salario:</strong>
+                <strong>Salario: </strong>
                 {job.salaryRange}</p>}
             {job.contactEmail && <p>
-                <strong>Email de contacto:</strong>
+                <strong>Email de contacto: </strong>
                 {job.contactEmail}</p>}
             {job.linkedinLink && (
                 <p>
@@ -124,9 +128,9 @@ const JobDetail = () => {
                 </p>
             )}
             <p>
-                <strong>Publicado:</strong>
+                <strong>Publicado: </strong>
                 {formatDate(job.createdAt)}</p>
-            
+                </div>
             {/* Confirm Delete Modal */}
       {showDeleteConfirmation && (
         <Modal

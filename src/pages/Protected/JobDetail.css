@@ -1,0 +1,71 @@
+
+/* whole div */
+
+
+.whole-job-div{
+
+    margin:  2rem auto;
+    padding: 1rem 2rem;
+width: 1100px;
+box-shadow: 0 5px 12px rgb(0, 0, 0);
+
+}
+
+/* action buttons detailed job description */
+
+.actionbuttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    gap: 1.5rem;
+    padding: 0.7rem; 
+    background-color: #1c418c;
+}
+
+.actionbtn {
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: white;
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+    background: none;
+    border: none;
+}
+
+
+.linkedin-link:link,
+.linkedin-link:visited {
+    background-color: #001e60;
+    color: white;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.linkedin-link:hover,
+.linkedin-link:active {
+    background-color: #001e60c0;
+}
+
+/* Tablets and large phones (landscape mode) */
+@media (max-width: 1024px) {
+    .whole-job-div{
+
+    width: 80%;
+    
+    }
+    
+  }
+  
+  /* Small tablets and large smartphones */
+  @media (max-width: 768px) {
+    /* CSS */
+  }
+  
+  /* Smaller smartphones */
+  @media (max-width: 480px) {
+  
+  
+   
+  }

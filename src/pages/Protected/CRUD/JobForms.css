@@ -1,0 +1,94 @@
+/* forms */
+.job-form-component {
+    width: 1100px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 5px 12px rgb(0, 0, 0);
+    margin-bottom: 2rem;
+  }
+  
+  .job-form-component form {
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  .job-form-component input,
+  .job-form-component select,
+  .job-form-component textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .job-form-component textarea {
+    height: 15rem;
+  }
+  
+  .job-form-component .submit-btn {
+    background-color: #1c418c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .job-form-component .submit-btn:hover {
+    background-color: #002a85d5;
+  }
+  
+  .update-btn {
+    color: black;
+    box-shadow: 0 2px 10px black;
+    font-size: 0.9rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 550;
+  
+  }
+  
+
+
+/* div of the undo button */
+.actionbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem; 
+    background-color: #1c418c;
+}
+
+/* undo button */
+.actionbtn {
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: white;
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+    background: none;
+    border: none;
+}
+
+/* Tablets and large phones (landscape mode) */
+@media (max-width: 1024px) {
+  .job-form-component {
+    width: 85vw;
+  }
+  
+}
+
+/* Small tablets and large smartphones */
+@media (max-width: 768px) {
+  /* CSS */
+}
+
+/* Smaller smartphones */
+@media (max-width: 480px) {
+
+
+ 
+}
