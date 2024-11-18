@@ -4,10 +4,10 @@ export const SearchContext = createContext();
 
 export const SearchProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [location, setLocation] = useState('');
+  const [locationTerm, setLocationTerm] = useState('');
 
   return (
-    <SearchContext.Provider value={{ searchTerm, setSearchTerm, location, setLocation }}>
+    <SearchContext.Provider value={{ searchTerm, setSearchTerm, locationTerm, setLocationTerm }}>
       {children}
     </SearchContext.Provider>
   );

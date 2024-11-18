@@ -1,10 +1,10 @@
 //pages/LogIn.jsx
 import React, { useState } from "react";
-import { login } from "../services/auth";
+import { login } from "../../services/auth";
 import { useNavigate } from "react-router-dom";
 import "./Signup";
 import "./Login.css"
-import * as USER_HELPERS from "../utils/userToken";
+import * as USER_HELPERS from "../../utils/userToken";
 
 export default function LogIn({ authenticate }) {
 

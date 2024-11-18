@@ -1,0 +1,25 @@
+
+
+.navbar{
+    height: 5rem;
+    box-shadow: 0 1px 3px rgb(0, 0, 0);
+
+}
+
+.searchbar-div-client{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem;
+}
+
+.main-container-columns-div{
+        display: flex;
+        background-color: rgb(25, 15, 131);
+        margin: 0 3rem 3rem;
+}
+
+.job-details-container-div{
+    width: 49vw;
+    margin: 0 1rem;
+}

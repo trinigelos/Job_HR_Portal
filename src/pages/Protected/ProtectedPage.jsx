@@ -1,12 +1,18 @@
 import React from "react";
-import { Outlet, useLocation, matchPath } from "react-router-dom";
-import Sidebar from "./Protected/SideBar";
-import "./Protected/Dashboard.css"
-import SearchBar from "../components/SearchBar/SearchBar";
-import { SearchProvider } from "../components/SearchBar/SearchContext";
+import { Outlet, useLocation, matchPath, Navigate } from "react-router-dom";
+import Sidebar from "./SideBar";
+import "./Dashboard.css"
+import SearchBar from "../../components/SearchBar/SearchBar";
+import * as PATHS from "../../utils/paths";
+
 
 const ProtectedPage = ({ user, handleLogout }) => {
-    const location = useLocation(); // Get current location path
+    const location = useLocation(); 
+
+     // Redirect to login if user is not authenticated
+     if (!user) {
+        return <Navigate to={PATHS.LOGINPAGE} replace />;
+    }
 
     // Define routes for which the SearchBar should be hidden
     const noSearchBarPaths = [
@@ -28,8 +34,7 @@ const ProtectedPage = ({ user, handleLogout }) => {
 
 
     return (
-        // wrapped in searchcontext to make the searchbar functional.
-        <SearchProvider > 
+     
         <div className="dashboard-container">
             {/* Sidebar Component */}
                 <Sidebar handleLogout={handleLogout}/>
@@ -44,7 +49,6 @@ const ProtectedPage = ({ user, handleLogout }) => {
           <Outlet />
             </div>
             </div>
-            </SearchProvider>
     );
 };
 

@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 
-import ProtectedPage from "../pages/ProtectedPage";
+import ProtectedPage from "../pages/Protected/ProtectedPage";
 import * as PATHS from "../utils/paths";
 
 const routes = (props) => {

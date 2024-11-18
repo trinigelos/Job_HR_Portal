@@ -1,18 +1,19 @@
-/* jobsTab.css */
-/* jobs container- jobstab */
-.jobs-container {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(400px, 2fr));
+/* JobPreviewClientDashboard.module.css */
+
+
+.jobsContainer {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
-    grid-gap: 1rem;
-    width: 75vw;
+    gap: 1rem;
+    width: 40vw;
     justify-content: center;
     align-items: center;
 
 }
 
 
-.job-post-preview {
+.jobPostPreview {
     background-color: #ffffff;
     border: none;
     padding: 0.8rem;
@@ -23,44 +24,59 @@
     height: 300px;
     overflow: hidden;
 }
-.job-link{
+.jobLink{
     text-decoration: none;
 }
-.job-post-preview:hover {
+
+.jobPostPreview:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-.job-post-preview h3 {
+.jobPostPreview h3 {
     color: #333;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     margin-top: 0.4rem;
 }
 
-.job-post-preview p {
+.jobPostPreview p {
     margin: 0.25rem 0;
     color: #666;
     line-height: 1.4;
 }
 
-.job-post-preview p strong {
+.jobPostPreview p strong {
     color: #1c418c;
     font-weight: 600;
 }
 
 
+/* MODULAR WHOLE JOBDIV FROM JOBDETAILS - REUSABLEJOBDETAILS - clientdashboard jobreusable */
+.wholeJobDiv{
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+background-color: white;
+    margin:  1rem auto;
+    padding: 0.5rem 2rem;
+    
 
+}
 
 
 /* Tablets and large phones (landscape mode) */
 @media (max-width: 1024px) {
-    .jobs-container {
+    .jobsContainer {
         grid-template-columns: repeat(1, minmax(300px, 2fr));
     
     }
     
-    .job-post-preview{
+    .jobPostPreview{
         margin: 0.5rem 0;
+    }
+
+    .wholeJobDiv{
+
+       width: 80%;
+    
     }
 }
 

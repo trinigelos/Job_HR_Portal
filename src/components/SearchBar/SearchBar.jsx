@@ -11,16 +11,16 @@ export default function SearchBar() {
     });
 
     // Destructure the setter functions from SearchContext
-    const { setSearchTerm, setLocation } = useContext(SearchContext);
+    const { setSearchTerm, setLocationTerm } = useContext(SearchContext);
 
     // Debounced function to update the search context
     // This function will delay updates until the user stops typing
     const debouncedSearch = useCallback(
-        debounce((searchTerm, location) => {
+        debounce((searchTerm, locationTerm) => {
             setSearchTerm(searchTerm);
-            setLocation(location);
+            setLocationTerm(locationTerm);
         }, 100), // Adjust delay to control responsiveness
-        [setSearchTerm, setLocation]
+        [setSearchTerm, setLocationTerm]
     );
 
     // Handle changes to the input fields
@@ -32,7 +32,7 @@ export default function SearchBar() {
             const updatedForm = { ...prev, [name]: value }; // Get updated form values
             
             // Debounced update to the context values
-            debouncedSearch(updatedForm.searchTerm, updatedForm.location);
+            debouncedSearch(updatedForm.searchTerm, updatedForm.locationTerm);
 
             return updatedForm; // Return the updated form state
         });
@@ -41,7 +41,7 @@ export default function SearchBar() {
     // Handle clicking the search button for an immediate search
     const handleSearch = () => {
         setSearchTerm(form.searchTerm);
-        setLocation(form.location);
+        setLocationTerm(form.locationTerm);
     };
 
     return (
@@ -64,7 +64,7 @@ export default function SearchBar() {
                         name="location"
                         className="location-input"
                         placeholder="Ubicación"
-                        value={form.location}
+                        value={form.locationTerm}
                         onChange={handleChange} // Update state on change
                     />
 

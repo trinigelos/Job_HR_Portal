@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
-import * as PATHS from '../utils/paths';
+import * as PATHS from '../../utils/paths';
 import './Login.css';
 
 const HomePage = () => {

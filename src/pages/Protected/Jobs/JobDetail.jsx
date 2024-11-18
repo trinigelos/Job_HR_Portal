@@ -1,18 +1,21 @@
 // JobDetail.jsx
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
-import {formatDate} from "../../components/components";
-import {JobDescription} from "../../components/components";
-import { getJobPost, deleteJobPost } from './CRUD/JobPostService';
-import Modal from "../../components/Modal";
+import { getJobPost, deleteJobPost } from '../CRUD/JobPostService';
+import Modal from "../../../components/Modal";
 import "./JobDetail.css"
+import ReusableJobDetail from "./ReusableJobDetail";
+import { JobContext } from './JobsContext';
+
 const JobDetail = () => {
     const {jobId} = useParams(); // Extract jobId from the route parameters
     const [job, setJob] = useState(null);
 
     //to display Modals of messages whenever actions get done
     const [showModal, setShowModal] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+  const [modalMessage, setModalMessage] = useState('');
+  const {  styles } = useContext(JobContext);
+  
 
 
   // To display delete confirmation modal
@@ -95,42 +98,8 @@ const JobDetail = () => {
      
               
         </div>
-        <div className="whole-job-div">
-            <h2>{job.title}</h2>
-            <p>{job.company}</p>
-            <p>
-                <strong>Ubicación: </strong>
-                {job.location}</p>
-            <p>
-                <strong>Disponibilidad: </strong>
-                {job.employmentType}</p>
-            <p>
-                <strong>Modalidad: </strong>
-                {job.employmentStyle}</p>
-            <p>
-                <strong>Descripción: </strong>
-                <JobDescription description={job.description}/></p>
-            {job.salaryRange && <p>
-                <strong>Salario: </strong>
-                {job.salaryRange}</p>}
-            {job.contactEmail && <p>
-                <strong>Email de contacto: </strong>
-                {job.contactEmail}</p>}
-            {job.linkedinLink && (
-                <p>
-                    <a
-                        href={job.linkedinLink}
-                        className="linkedin-link"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <strong>LinkedIn</strong>
-                    </a>
-                </p>
-            )}
-            <p>
-                <strong>Publicado: </strong>
-                {formatDate(job.createdAt)}</p>
-                </div>
+        {/* REUSABLE JOB DETAIL COMPONENT GOES HERE:       */}
+        <ReusableJobDetail job={job} styles={styles} />
             {/* Confirm Delete Modal */}
       {showDeleteConfirmation && (
         <Modal

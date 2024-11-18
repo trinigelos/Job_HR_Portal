@@ -2,14 +2,14 @@
 /* whole div */
 
 
-.whole-job-div{
+/* .whole-job-div{
 
     margin:  2rem auto;
     padding: 1rem 2rem;
 width: 1100px;
 box-shadow: 0 5px 12px rgb(0, 0, 0);
 
-}
+} */
 
 /* action buttons detailed job description */
 
@@ -50,11 +50,7 @@ box-shadow: 0 5px 12px rgb(0, 0, 0);
 
 /* Tablets and large phones (landscape mode) */
 @media (max-width: 1024px) {
-    .whole-job-div{
-
-    width: 80%;
-    
-    }
+ 
     
   }
   
