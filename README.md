@@ -1,4 +1,4 @@
-# Project Name: Job Search Web Application (Frontend)
+#  Job Search Web Application (Frontend)
 
 This is the **frontend** repository for a job search web application, built with React, featuring user authentication, role-based views, and a nested routing system for managing the application's layout and flow effectively.
 
@@ -54,10 +54,6 @@ The application uses **React Router** to define various routes, including nested
 - **`/` (HomePage)**: Contains nested routes for `Signup` (`/auth/signup`) and `Login` (`/auth/login`).
 - **Protected Routes**: Pages like `/protected` which require user authentication.
 
-### Nested Routing Issue and Solution
-Initially, there were issues implementing nested routes using a dynamically generated configuration in `routes.jsx`. These issues included rendering problems and the inability to match routes correctly. The problem was resolved by explicitly defining nested routes directly in `App.js`. This provided a clear parent-child relationship for React Router, allowing the nested routes (`Signup` and `Login`) to render properly within the `HomePage` component.
-
-For more information on this problem and how it was solved, please refer to the `nested_routes_issue.md` file.
 
 ## Running the Application
 1. After cloning the repository and installing dependencies, run:
