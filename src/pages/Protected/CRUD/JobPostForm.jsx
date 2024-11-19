@@ -30,6 +30,11 @@ const JobPostForm = () => {
 
   const [jobData, setJobData] = useState(initialState);
 
+   // Function to remove accents and convert text to uppercase
+   const normalizeAndUppercase = (str) => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+  };
+
   // Handle form submission for creating a job post
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -52,7 +57,14 @@ const JobPostForm = () => {
 
   // Handle changes to form inputs
   const handleChange = (e) => {
-    setJobData({ ...jobData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+   // Apply normalization and uppercase to the title and locationTerm fields
+   if (name === 'title' || name === 'locationTerm') {
+    setJobData({ ...jobData, [name]: normalizeAndUppercase(value) });
+  } else {
+    setJobData({ ...jobData, [name]: value });
+  }
   };
 
   // Close the modal dialog

@@ -19,15 +19,23 @@ const ClientDashboard = () => {
       <div className="main-container-columns-div">
         <div className="job-preview-container-div">
           <div className={styles.jobsContainer}>
-            {jobPosts.map((job) => (
-              <div
-                key={job._id}
-                className={styles.jobLink}
-                onClick={() => setSelectedJob(job)} // Set selected job when clicked
-              >
-                <JobPreview job={job} styles={styles} />
-              </div>
-            ))}
+          {jobPosts.length > 0 ? (
+              jobPosts.map((job) => (
+                <div
+                  key={job._id}
+                  className={styles.jobLink}
+                  onClick={() => setSelectedJob(job)} // Set selected job when clicked
+                >
+                  <JobPreview job={job} styles={styles} />
+                </div>
+              ))
+            ) : (
+              <div className={styles.noJobsMessage}>
+                  <p className='selecciona-trabajo'> No hemos encontrado un trabajo con ese titulo, intenta nuevamente.
+                  </p> 
+                </div>
+            )}
+        
           </div>
         </div>
         <div className="job-details-container-div">

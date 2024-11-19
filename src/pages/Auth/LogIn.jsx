@@ -9,9 +9,8 @@ import * as USER_HELPERS from "../../utils/userToken";
 export default function LogIn({ authenticate }) {
 
   const [form, setForm] = useState({
-    username: "",
+    usernameOrEmail: "",
     password: "",
-    email: "",
   });
   const { username, password, email } = form;
   const [error, setError] = useState(null);
@@ -26,11 +25,18 @@ export default function LogIn({ authenticate }) {
 
   function handleFormSubmission(event) {
     event.preventDefault();
-    const credentials = {
-      username,
-      password,
-      email
-    };
+    
+    const { usernameOrEmail, password } = form;
+  const credentials = {
+    password,
+  };
+
+  // Check if the user input is an email or a username
+  if (usernameOrEmail.includes('@')) {
+    credentials.email = usernameOrEmail; // Treat it as an email
+  } else {
+    credentials.username = usernameOrEmail; // Treat it as a username
+  }
     login(credentials).then((res) => {
       if (!res.status) {
         return setError({ message: "Invalid credentials" });
@@ -50,9 +56,9 @@ export default function LogIn({ authenticate }) {
         <input
           id="input-username"
           type="text"
-          name="username"
+          name="usernameOrEmail"
           placeholder="Usuario o Email"
-          value={username}
+          value={form.usernameOrEmail}
           onChange={handleInputChange}
           required
         />
