@@ -14,7 +14,7 @@ const Sidebar = ({handleLogout}) => {
                             className={({isActive}) => (isActive
                             ? "active-tab"
                             : "not-active sidelinkHover")}>
-                            Trabajos
+                            TRABAJOS
                         </NavLink>
 
                     </div>
@@ -24,12 +24,21 @@ const Sidebar = ({handleLogout}) => {
                             className={({isActive}) => (isActive
                             ? "active-tab"
                             : "not-active sidelinkHover")}>
-                            Publicar
+                            PUBLICAR
+                        </NavLink>
+                </div>
+                <div className="navlinks-sidebar">
+                        <NavLink
+                            to="/clientdashboard"
+                            className={({isActive}) => (isActive
+                            ? "active-tab"
+                            : "not-active sidelinkHover")}>
+                            PORTAL USUARIO
                         </NavLink>
                     </div>
                     <div className="navlinks-sidebar">
                         <div onClick={handleLogout} className="logout-button sidelinkHover">
-                            Logout
+                            CERRAR SESION
                         </div>
                     </div>
 

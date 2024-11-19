@@ -1,25 +1,44 @@
 
-
-.navbar{
+.client-dashboard-div {
+    max-height: 140vh;
+    overflow: hidden;
+}
+.navbar {
     height: 5rem;
     box-shadow: 0 1px 3px rgb(0, 0, 0);
 
 }
 
-.searchbar-div-client{
+.searchbar-div-client {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 4rem;
 }
 
-.main-container-columns-div{
-        display: flex;
-        background-color: rgb(25, 15, 131);
-        margin: 0 3rem 3rem;
+
+.main-container-columns-div {
+    height: calc(90vh);
+    overflow-y: hidden;
+    display: flex;
+    margin: 0 3rem 3rem;
+    justify-content: center;
+
 }
 
-.job-details-container-div{
+.job-preview-container-div {
+    overflow-y: scroll;
+}
+.job-details-container-div {
     width: 49vw;
     margin: 0 1rem;
+
+}
+
+.selecciona-trabajo{
+ height: 30rem;
+ margin: 0;
+ padding: 2rem;
+ box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
 }

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Modal from '../../../components/Modal';
 import { getJobPost, updateJobPost } from './JobPostService';
 import JobForm from './JobForm';
 import "./JobForms.css"
+import { JobContext } from '../Jobs/JobsContext';
+
 
 const JobEditForm = () => {
   const { jobId } = useParams(); // Get jobId from the URL parameters
@@ -11,6 +13,7 @@ const JobEditForm = () => {
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
   const [modalMessage, setModalMessage] = useState(''); // State to store modal message
   const navigate = useNavigate();
+  const { fetchJobPosts } = useContext(JobContext);
 
 
   // Fetch job details to prefill the form when component mounts
@@ -49,8 +52,8 @@ const JobEditForm = () => {
 
   // Close the modal dialog
   const closeModal = () => {
-    
-    setShowModal(false);
+    fetchJobPosts()
+     setShowModal(false);
     navigate(`/dashboard/job/${jobId}`)
   };
 

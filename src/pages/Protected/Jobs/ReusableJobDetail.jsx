@@ -13,7 +13,7 @@ export default function ReusableJobDetail({ job, styles }) {
             <p>{job.company}</p>
             <p>
                 <strong>Ubicación: </strong>
-                {job.location}
+                {job.locationTerm}
             </p>
             <p>
                 <strong>Disponibilidad: </strong>

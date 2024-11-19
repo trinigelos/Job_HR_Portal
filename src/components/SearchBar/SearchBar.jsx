@@ -7,7 +7,7 @@ export default function SearchBar() {
     // Local state for the search form
     const [form, setForm] = useState({
         searchTerm: '',
-        location: ''
+        locationTerm: ''
     });
 
     // Destructure the setter functions from SearchContext
@@ -19,7 +19,7 @@ export default function SearchBar() {
         debounce((searchTerm, locationTerm) => {
             setSearchTerm(searchTerm);
             setLocationTerm(locationTerm);
-        }, 100), // Adjust delay to control responsiveness
+        }, 200), // Adjust delay to control responsiveness
         [setSearchTerm, setLocationTerm]
     );
 
@@ -61,7 +61,7 @@ export default function SearchBar() {
                     {/* Location Input */}
                     <input
                         type="text"
-                        name="location"
+                        name="locationTerm"
                         className="location-input"
                         placeholder="Ubicación"
                         value={form.locationTerm}

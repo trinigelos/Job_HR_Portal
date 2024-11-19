@@ -34,7 +34,7 @@ const ClientDashboard = () => {
           {selectedJob ? (
             <ReusableJobDetail job={selectedJob} styles={styles} />
           ) : (
-            <p>Select a job to see details here.</p>
+            <p className='selecciona-trabajo'>Selecciona un trabajo para verlo aqui.</p>
           )}
         </div>
       </div>

@@ -14,11 +14,7 @@ const JobDetail = () => {
     //to display Modals of messages whenever actions get done
     const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-  const {  styles } = useContext(JobContext);
-  
-
-
-  // To display delete confirmation modal
+  const {  styles, fetchJobPosts } = useContext(JobContext);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
     const navigate = useNavigate();
@@ -50,7 +46,9 @@ const JobDetail = () => {
         closeDeleteConfirmation();
         //display modal that has succesfully deleted the job
         setShowModal(true);
-        setModalMessage('Eliminado correctamente');
+      setModalMessage('Eliminado correctamente');
+      fetchJobPosts()
+      
     } catch (error) {
       console.error("Failed to delete job post", error);
     }

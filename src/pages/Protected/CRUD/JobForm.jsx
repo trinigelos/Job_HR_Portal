@@ -22,8 +22,8 @@ const JobForm = ({ jobData, handleChange, handleSubmit, buttonLabel }) => {
         />
         <input
           type="text"
-          name="location"
-          value={jobData.location}
+          name="locationTerm"
+          value={jobData.locationTerm}
           onChange={handleChange}
           placeholder="Ubicación"
           required

@@ -13,7 +13,7 @@ export default function JobPreview({job}) {
                         <p>{job.company}</p>
                         <p>
                             <strong>Ubicación: </strong>
-                            {job.location}</p>
+                            {job.locationTerm}</p>
                         <p>
                             <strong>Disponibilidad: </strong>
                             {job.employmentType}</p>

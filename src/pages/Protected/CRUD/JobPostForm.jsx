@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from '../../../components/Modal';
 import { postJob } from './JobPostService';
 import JobForm from './JobForm';
+import { JobContext } from '../Jobs/JobsContext';
 
 const JobPostForm = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
   const [newJobId, setNewJobId] = useState(null);
   const navigate = useNavigate();
+  const { fetchJobPosts } = useContext(JobContext);
+
 
   // Define initial state for the form
   const initialState = {
     title: '',
     company: '',
-    location: '',
+    locationTerm: '',
     category: '',
     employmentType: '',
     employmentStyle: '',
@@ -37,6 +40,7 @@ const JobPostForm = () => {
       setShowModal(true);
       setModalMessage('Publicado correctamente.');
       setNewJobId(createdJob._id); // Save the ID of the new job
+      fetchJobPosts()
 
       // Reset the form to its initial state
       setJobData(initialState);
@@ -63,6 +67,7 @@ const JobPostForm = () => {
   return (
     <div>
       {/* Render the JobForm component */}
+      <div className='prediv-postform'></div>
       <JobForm
         jobData={jobData}
         handleChange={handleChange}
