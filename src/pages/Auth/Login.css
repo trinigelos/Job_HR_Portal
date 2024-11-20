@@ -39,11 +39,11 @@ body {
 }
 
 .background-signup {
-    background-color: #0e77a829;
+    background-color: #1c418c34;
 }
 
 .background-login {
-    background-color: #0596683a;
+    background-color: #1c418c34;
 }
 
 /* crea tu cuenta h2 */
@@ -70,7 +70,7 @@ body {
     border: none;
     padding: 20px;
     margin-top: 5px;
-    background-color: #059669;
+    background-color: #1c418c;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
@@ -81,7 +81,7 @@ body {
 }
 
 .form-control form button:hover {
-    background-color: #004932;
+    background-color: #1c418cde;
 }
 
 .signup-form {
@@ -91,7 +91,7 @@ body {
 }
 
 #sign-btn:hover {
-    background-color: #001e60 !important;
+    background-color: #1c418cde !important;
 }
 
 .signin-form {
@@ -115,7 +115,7 @@ body {
     flex-direction: column;
     height: 480px;
     color: #fff;
-    background: linear-gradient(170deg, #34d399, #059669);
+    background: linear-gradient(170deg, #1c418c, #1c418cde);
     transition: all 0.5s ease-in;
 }
 
@@ -126,7 +126,7 @@ body {
 .intro-control button {
     border: none;
     padding: 15px 30px;
-    background-color: #10b981;
+    background-color: #1c418c;
     border-radius: 50px;
     color: #fff;
     margin: 10px 0px;
@@ -135,7 +135,7 @@ body {
 
 .intro-control button:hover {
     outline: none;
-    background-color: #059669;
+    background-color: #1c418cde;
 }
 
 .intro-control p {
@@ -161,7 +161,7 @@ body {
 }
 
 .change .forms-container .form-control.signup-form button {
-    background-color: #2563eb !important;
+    background-color: #1c418c !important;
 }
 
 .change .forms-container .form-control.signin-form {
@@ -172,15 +172,15 @@ body {
 
 .change .intros-container .intro-control {
     transform: translateX(-100%);
-    background: linear-gradient(170deg, #3b82f6, #2563eb);
+
 }
 
 .change .intros-container .intro-control #signin-btn {
-    background-color: #1c59dd;
+    background-color: #1c418c;
 }
 
 .change .intros-container .intro-control #signin-btn:hover {
-    background-color: #001e60;
+    background-color: #1c418cde;
 }
 
 .change .intros-container .intro-control.signin-intro {

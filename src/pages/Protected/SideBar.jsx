@@ -3,10 +3,13 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import "./SideBar.css";
 
-const Sidebar = ({handleLogout}) => {
+const Sidebar = ({ handleLogout }) => {
+       
+     
     return (
-        
-            <div className="sidebar">
+    
+        <div className="sidebar">
+ 
                 <div className="nav-items">
                     <div className="navlinks-sidebar">
                         <NavLink
@@ -44,6 +47,7 @@ const Sidebar = ({handleLogout}) => {
 
                 </div>
             </div>
+            
        
     );
 };

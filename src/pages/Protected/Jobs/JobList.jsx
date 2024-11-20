@@ -10,15 +10,19 @@ const JobList = () => {
 
 return (
     <div className={styles.jobsContainer}>
-    {jobPosts.map((job) => (
-      <Link
-        to={`/dashboard/job/${job._id}`} 
-        key={job._id}
-        className={styles.jobLink}
-      >
-        <JobPreview job={job} styles={styles} />
-      </Link>
-    ))}
+   {jobPosts.length > 0 ? (
+  jobPosts.map((job) => (
+    <Link
+      to={`/dashboard/job/${job._id}`} 
+      key={job._id}
+      className={styles.jobLink}
+    >
+      <JobPreview job={job} styles={styles} />
+    </Link>
+  ))
+) : (
+  <p>No hemos encontrado el trabajo seleccionado, puede que no esté disponible.</p>
+)}
   </div>
   );
 };

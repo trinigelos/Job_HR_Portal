@@ -24,6 +24,8 @@ export const JobProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log("Fetching job posts...");
+
     fetchJobPosts();
   }, [searchTerm, locationTerm]);
 

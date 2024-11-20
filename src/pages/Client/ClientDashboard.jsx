@@ -4,6 +4,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import JobPreview from '../Protected/Jobs/JobPreview';
 import ReusableJobDetail from '../Protected/Jobs/ReusableJobDetail';
 import "./ClientDashboard.css";
+import foto1 from "./logoCeciliaMenta.png";
 
 const ClientDashboard = () => {
   const { jobPosts, styles } = useContext(JobContext);
@@ -11,7 +12,9 @@ const ClientDashboard = () => {
 
   return (
     <div className='client-dashboard-div'>
-      <div className='navbar'></div>
+      <div className='navbar'>
+      <img src={foto1} alt="" />
+      </div>
       <div className="searchbar-div-client">
         <SearchBar />
       </div>

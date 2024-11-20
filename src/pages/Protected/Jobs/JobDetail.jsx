@@ -14,13 +14,14 @@ const JobDetail = () => {
     //to display Modals of messages whenever actions get done
     const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-  const {  styles, fetchJobPosts } = useContext(JobContext);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const {  styles, fetchJobPosts } = useContext(JobContext);
 
     const navigate = useNavigate();
 
     // Fetch job details from the backend
-    useEffect(() => {
+  useEffect(() => {
+    console.log("Job ID fetched:", jobId);
         const fetchJob = async() => {
             try {
                 const data = await getJobPost(jobId);
