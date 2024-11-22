@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { JobContext } from "./JobsContext";
-import {JobDescription} from "../../../components/components";
+import { formatDate } from "../../../components/components";
+
 
 export default function JobPreview({job}) {
     const { styles } = useContext(JobContext);
@@ -16,14 +17,13 @@ export default function JobPreview({job}) {
                             {job.locationTerm}</p>
                         <p>
                             <strong>Disponibilidad: </strong>
-                            {job.employmentType}</p>
-                        <p>
-                            <strong>Descripción:
-                            </strong>
-                            <JobDescription
-                                description={job
-                                .description
-                                .slice(0, 300)}/>...</p>
+                {job.employmentType}</p>
+            
+                <p>
+                <strong>Publicado: </strong>
+                {formatDate(job.createdAt)}
+            </p>
+                       
                     </div>
             
     )

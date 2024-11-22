@@ -31,7 +31,9 @@ box-shadow: 0 5px 12px rgb(0, 0, 0);
     background: none;
     border: none;
 }
-
+.apply-links{
+    display: flex;
+}
 
 .linkedin-link:link,
 .linkedin-link:visited {
@@ -46,6 +48,25 @@ box-shadow: 0 5px 12px rgb(0, 0, 0);
 .linkedin-link:hover,
 .linkedin-link:active {
     background-color: #001e60c0;
+}
+.mailTo-link:link, .mailTo-link:visited{
+    background-color: #12295b;
+    text-decoration: none;
+    padding: 15.5px;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mailTo-link button {
+    border: none;
+    background-color: #12295b;
+color: white;
+padding: 0;
+    text-decoration: none;
 }
 
 /* Tablets and large phones (landscape mode) */

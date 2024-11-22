@@ -33,7 +33,15 @@ const JobForm = ({ jobData, handleChange, handleSubmit, buttonLabel }) => {
           name="category"
           value={jobData.category}
           onChange={handleChange}
-          placeholder="Categoría"
+          placeholder="Palabra Clave, Categoria, Trabajo relacionado, etc"
+        />
+        <input
+          type="text"
+          name="applicationCode"
+          value={jobData.applicationCode}
+          onChange={handleChange}
+          placeholder="Codigo de Referecia en Email"
+          required
         />
         <select name="employmentType" value={jobData.employmentType} onChange={handleChange}>
           <option value="empty">-</option>

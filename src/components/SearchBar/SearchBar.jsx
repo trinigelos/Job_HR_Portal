@@ -63,7 +63,7 @@ export default function SearchBar() {
                         type="text"
                         name="locationTerm"
                         className="location-input"
-                        placeholder="Ubicación"
+                        placeholder="Provincia, Ciudad, Región, Zona, etc"
                         value={form.locationTerm}
                         onChange={handleChange} // Update state on change
                     />

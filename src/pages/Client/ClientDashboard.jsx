@@ -10,12 +10,16 @@ const ClientDashboard = () => {
   const { jobPosts, styles } = useContext(JobContext);
   const [selectedJob, setSelectedJob] = useState(null); // State to track selected job
 
+
+
   return (
     <div className='client-dashboard-div'>
       <div className='navbar'>
       <img src={foto1} alt="" />
       </div>
       <div className="searchbar-div-client">
+      <h2> Encuentra tu próximo trabajo</h2>
+
         <SearchBar />
       </div>
 
@@ -48,6 +52,7 @@ const ClientDashboard = () => {
             <p className='selecciona-trabajo'>Selecciona un trabajo para verlo aqui.</p>
           )}
         </div>
+  
       </div>
     </div>
   );

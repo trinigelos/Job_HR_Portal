@@ -6,6 +6,10 @@ export default function ReusableJobDetail({ job, styles }) {
     if (!job) {
         return null; // Return null or a loading state if job is not available
     }
+ // Constructing the Gmail link
+ const mailToLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${job.contactEmail}&su=${job.applicationCode}&body=Estimada Cecilia Menta,%0D%0A%0D%0A Estoy interesado/a en aplicar al trabajo de ${job.title}.%0D%0A%0D%0A Adjunto CV y carta de presentación.%0D%0A%0D%0A Saludos Cordiales, %0D%0A[Tu nombre]`;
+
+    
 
     return (
         <div className={styles.wholeJobDiv}>
@@ -38,7 +42,17 @@ export default function ReusableJobDetail({ job, styles }) {
                     <strong>Email de contacto: </strong>
                     {job.contactEmail}
                 </p>
+               
             )}
+            {job.applicationCode && (
+                  <p>
+                  <strong>Codigo Ref. Email: </strong>
+              {job.applicationCode}
+          </p>
+
+            )}
+            <div className="apply-links">
+                
             {job.linkedinLink && (
                 <p>
                     <a
@@ -50,7 +64,23 @@ export default function ReusableJobDetail({ job, styles }) {
                         <strong>LinkedIn</strong>
                     </a>
                 </p>
-            )}
+                )}
+                    <p>
+                        <a
+                            href={mailToLink}
+                        target="_blank"
+                        className="mailTo-link"
+                            rel="noopener noreferrer"
+                            >
+                        <button >
+                            <strong>
+
+                            Gmail
+                            </strong>
+                        </button>
+                        </a>
+                    </p>
+           </div>
             <p>
                 <strong>Publicado: </strong>
                 {formatDate(job.createdAt)}

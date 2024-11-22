@@ -17,6 +17,7 @@ const JobPostForm = () => {
   const initialState = {
     title: '',
     company: '',
+    applicationCode: '',
     locationTerm: '',
     category: '',
     employmentType: '',
@@ -24,7 +25,7 @@ const JobPostForm = () => {
     description: '',
     requirements: '',
     salaryRange: '',
-    contactEmail: '',
+    contactEmail: 'cmentaseleccion@gmail.com',
     linkedinLink: '',
   };
 

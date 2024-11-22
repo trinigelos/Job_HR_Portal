@@ -1,7 +1,8 @@
 
 .client-dashboard-div {
-    max-height: 140vh;
+    max-height: 145vh;
     overflow: hidden;
+    padding: 0 0 3rem 0;
 }
 .navbar {
     height: 6rem;
@@ -16,9 +17,10 @@
 
 .searchbar-div-client {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 4rem;
+    margin: 2rem auto 4rem;
 }
 
 .main-container-columns-div {
@@ -32,6 +34,8 @@
 
 .job-preview-container-div {
     overflow-y: scroll;
+    padding: 0 0 2rem;
+    margin:0 0 4rem;
 }
 .job-details-container-div {
     width: 49vw;
