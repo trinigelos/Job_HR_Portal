@@ -52,7 +52,7 @@ box-shadow: 0 5px 12px rgb(0, 0, 0);
 .mailTo-link:link, .mailTo-link:visited{
     background-color: #12295b;
     text-decoration: none;
-    padding: 15.5px;
+    padding: 11.9px;
     text-align: center;
     margin-left: 10px;
     cursor: pointer;
@@ -63,11 +63,30 @@ box-shadow: 0 5px 12px rgb(0, 0, 0);
 
 .mailTo-link button {
     border: none;
+    font-size: 1rem;
+    cursor: pointer;
+
     background-color: #12295b;
 color: white;
 padding: 0;
     text-decoration: none;
 }
+
+.material-symbols-outlined {
+    color: white !important;
+    margin: 0 0 0 10px;
+    padding: 0;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+  .Mail-link-div{
+    display: flex;
+    flex-direction: column;
+  }
 
 /* Tablets and large phones (landscape mode) */
 @media (max-width: 1024px) {

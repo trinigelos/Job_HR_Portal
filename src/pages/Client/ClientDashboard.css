@@ -7,6 +7,9 @@
 .navbar {
     height: 6rem;
     box-shadow: 0 1px 3px rgb(0, 0, 0);
+    /* position: fixed;
+    width: 100%;
+    background-color: white; */
 
 }
 
@@ -69,6 +72,10 @@
     }
 
     .main-container-columns-div {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 5rem;
         flex-direction: column;
         margin: 3rem 1rem;
         width: 100%;

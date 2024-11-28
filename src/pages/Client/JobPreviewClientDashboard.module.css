@@ -69,8 +69,13 @@ height: 87vh;
 /* Tablets and large phones (landscape mode) */
 @media (max-width: 1024px) {
     .jobsContainer {
-        grid-template-columns: repeat(1, minmax(300px, 2fr));
-    
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        gap: 1rem;
+        width: 39vw;
+        justify-content: center;
+        align-items: center;
     }
     
     .jobPostPreview{

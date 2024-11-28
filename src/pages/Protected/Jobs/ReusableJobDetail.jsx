@@ -1,59 +1,81 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { formatDate } from "../../../components/components";
 import { JobDescription } from "../../../components/components";
+import { useParams } from "react-router-dom";
+import { getJobPost } from "../CRUD/JobPostService";
 
 export default function ReusableJobDetail({ job, styles }) {
-    if (!job) {
+    const { jobId } = useParams(); // Extract jobId from the URL
+    const [jobData, setJobData] = useState(job);
+
+    // Fetch job details if the job prop is null and there's a jobId in the URL
+    useEffect(() => {
+        if (!job && jobId) {
+            const fetchJobById = async () => {
+                try {
+                    const fetchedJob = await getJobPost(jobId);
+                    setJobData(fetchedJob);
+                } catch (error) {
+                    console.error("Failed to fetch job details:", error);
+                }
+            };
+            fetchJobById();
+        } else if (job) {
+            setJobData(job);
+        }
+    }, [job, jobId]);
+
+    if (!jobData) {
         return null; // Return null or a loading state if job is not available
     }
  // Constructing the Gmail link
- const mailToLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${job.contactEmail}&su=${job.applicationCode}&body=Estimada Cecilia Menta,%0D%0A%0D%0A Estoy interesado/a en aplicar al trabajo de ${job.title}.%0D%0A%0D%0A Adjunto CV y carta de presentación.%0D%0A%0D%0A Saludos Cordiales, %0D%0A[Tu nombre]`;
+ const mailToLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${jobData.contactEmail}&su=${jobData.applicationCode}&body=Estimada Cecilia Menta,%0D%0A%0D%0A Estoy interesado/a en aplicar al trabajo de ${jobData.title}.%0D%0A%0D%0A Adjunto CV y carta de presentación.%0D%0A%0D%0A Saludos Cordiales, %0D%0A[Tu nombre]`;
 
     
 
     return (
         <div className={styles.wholeJobDiv}>
-            <h2>{job.title}</h2>
-            <p>{job.company}</p>
+            <h2>{jobData.title}</h2>
+            <p>{jobData.company}</p>
             <p>
                 <strong>Ubicación: </strong>
-                {job.locationTerm}
+                {jobData.locationTerm}
             </p>
             <p>
                 <strong>Disponibilidad: </strong>
-                {job.employmentType}
+                {jobData.employmentType}
             </p>
             <p>
                 <strong>Modalidad: </strong>
-                {job.employmentStyle}
+                {jobData.employmentStyle}
             </p>
             <p>
                 <strong>Descripción: </strong>
                 <JobDescription description={job.description} />
             </p>
-            {job.salaryRange && (
+            {jobData.salaryRange && (
                 <p>
                     <strong>Salario: </strong>
                     {job.salaryRange}
                 </p>
             )}
-            {job.contactEmail && (
+            {jobData.contactEmail && (
                 <p>
                     <strong>Email de contacto: </strong>
                     {job.contactEmail}
                 </p>
                
             )}
-            {job.applicationCode && (
+            {jobData.applicationCode && (
                   <p>
                   <strong>Codigo Ref. Email: </strong>
-              {job.applicationCode}
+              {jobData.applicationCode}
           </p>
 
             )}
             <div className="apply-links">
                 
-            {job.linkedinLink && (
+            {jobData.linkedinLink && (
                 <p>
                     <a
                         href={job.linkedinLink}
@@ -65,7 +87,7 @@ export default function ReusableJobDetail({ job, styles }) {
                     </a>
                 </p>
                 )}
-                    <p>
+                    <p className="Mail-link-div">
                         <a
                             href={mailToLink}
                         target="_blank"
@@ -73,12 +95,17 @@ export default function ReusableJobDetail({ job, styles }) {
                             rel="noopener noreferrer"
                             >
                         <button >
-                            <strong>
+                           
 
-                            Gmail
-                            </strong>
+                                Aplicar 
+                           
+                                                   
                         </button>
-                        </a>
+                        <span class="material-symbols-outlined">
+mail
+</span>
+                    </a>
+                
                     </p>
            </div>
             <p>

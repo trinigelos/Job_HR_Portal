@@ -119,8 +119,9 @@ export default function App() {
                 <ClientDashboard />
             </JobProvider></SearchProvider>
           }>
-          <Route path="job/:id" element= { <ReusableJobDetail />} />
-          </Route>
+          <Route path="job/:id" element={<ReusableJobDetail />} />
+
+        </Route>
         
         {/* dynamic routing */}
         {routes({ user, authenticate, handleLogout }).map((route) => (
