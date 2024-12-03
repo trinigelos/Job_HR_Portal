@@ -33,6 +33,7 @@ const Sidebar = ({ handleLogout }) => {
                 <div className="navlinks-sidebar">
                         <NavLink
                             to="/clientdashboard"
+                            target="_blank" 
                             className={({isActive}) => (isActive
                             ? "active-tab"
                             : "not-active sidelinkHover")}>

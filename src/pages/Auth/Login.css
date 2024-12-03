@@ -7,8 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 6rem;
-    
+    height: 100vh;
 
 }
 
@@ -22,7 +21,8 @@ body {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 15px 15px rgba(0, 0, 0, 0.22);
 }
 
-.forms-container {
+/* container in homepage to toggle */
+.forms-container{
     position: relative;
     width: 50%;
     text-align: center;
@@ -244,9 +244,8 @@ body {
     width: 90%;
     padding: 15px;
     padding-right: 40px; /* Make room for the visibility toggle icon */
-    /* border: 1px solid #ddd; Border to match your design */
     border-radius: 5px;
-    font-family: "Raleway", sans-serif; /* Keep font consistent */
+    font-family: "Raleway", sans-serif; 
 }
 
 /* Positions the visibility toggle icon inside the password field */
@@ -263,42 +262,42 @@ body {
 
 @media screen and (max-width: 480px) {
     .whole-container{
-        margin-top: 0;
         height: 100vh;
+        gap: 3rem;
+
 
     }
   
     .login-container {
         display: flex;
         flex-direction: column;
+        height: 100vh;
     }
 
     .forms-container {
         order: 2;
         width: 100%;
-        height: 100vh;
+        height: 50rem;
     }
 
     .form-control {
         position: absolute;
-        height: 50vh;
     }
 
     .signup-form {
         left: 0%;
-        /* margin-top: 70px; */
+        margin-top: 58px;
     }
 
     .intros-container {
         order: 1;
         width: 100%;
         left: 0%;
-        height: 40vh;
+        height: 50rem;
     }
 
     .intro-control {
         position: absolute;
-        height: 40vh;
     }
 
     .form-control .signin-form .background-login{

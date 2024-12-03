@@ -32,3 +32,27 @@ cursor: pointer;
 .btn-navbar:hover{
     color:#006d97;
 }
+
+@media (max-width: 1024px) {
+
+}
+
+/* Small tablets and large smartphones */
+@media (max-width: 768px) {
+
+}
+/* Smaller smartphones */
+@media (max-width: 480px) {
+.navbar{
+gap: 0;
+justify-content: center;
+text-align: center;
+align-items: center
+;}
+
+.navbar img{
+    width: 30%;
+    height: 90%;
+}
+}
+  
