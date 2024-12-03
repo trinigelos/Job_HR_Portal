@@ -6,7 +6,6 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import JobPreview from '../Protected/Jobs/JobPreview';
 import ReusableJobDetail from '../Protected/Jobs/ReusableJobDetail';
 import "./ClientDashboard.css";
-import foto1 from "./logoCeciliaMenta.png";
 import { getJobPost } from '../Protected/CRUD/JobPostService'; // Import your service to fetch a job by ID
 
 
@@ -45,15 +44,13 @@ const ClientDashboard = () => {
     useEffect(() => {
         if (selectedJob) {
             // Update the URL to include job ID without reloading the page
-            navigate(`/clientdashboard/job/${selectedJob._id}`, { replace: true });
+            navigate(`/clientdashboard/clientjobs/job/${selectedJob._id}`, { replace: true });
         }
     }, [selectedJob, navigate]);
   
     return (
         <div className='client-dashboard-div'>
-            <div className='navbar'>
-                <img src={foto1} alt=""/>
-            </div>
+           
             <div className="searchbar-div-client">
                 <h2>
                     Encuentra tu próximo trabajo</h2>

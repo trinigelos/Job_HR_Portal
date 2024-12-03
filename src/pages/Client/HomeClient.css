@@ -1,0 +1,215 @@
+/* ABOUT PAGE */
+.intro{
+    height: 60vh;
+    margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: left;
+font-size: 1.3rem;
+flex-direction: column;
+  transition: transform 1s ease-in, opacity 0.8s ease-out;
+
+  text-align: center;
+
+}
+
+.intro img{
+    padding: 3rem;
+}
+.portada-gestion-about{
+    width: 100%;
+    
+}
+
+.first-part-about  {
+    height: 20%;
+    background-color: #006d97;
+    margin: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-part-about p{
+    padding: 3rem 5rem;
+    margin: 0;
+    line-height: 2rem;
+    text-align: center;
+
+}
+
+.second-part-about{
+    height:70%;
+color: black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 2rem 0 4rem;
+gap: 1rem;
+text-align: center;
+}
+
+
+.images-ventajas-competitivas{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    height: fit-content;
+}
+
+
+.ventajas-competitivas{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    transition: transform 0.3s ease-in-out;
+    align-items: center;
+box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.203);
+
+}
+
+.ventajas-competitivas:hover{
+    transform: scale(1.2); /* Increase size by 20% */
+
+}
+
+.ventajas-competitivas img{
+
+width: 25rem;
+height: 15rem;
+margin: 2rem;
+filter: grayscale(60%);
+padding: 0.1rem;
+box-shadow: 1px 2px 3px black;
+
+}
+
+
+.ventajas-competitivas p{
+    padding: 0 0 3rem;
+    height: 2rem;
+    margin: 0;
+}
+.third-part-about{
+    height: 20rem;
+    background-color: #006d97;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem 5rem;
+    text-align: center;
+}
+
+.fourth-part-about-emailing {
+    display: flex;
+    height: 20rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    background-color: #ffffffd5;
+    color: black;
+  }
+  
+  .fourth-part-about-emailing h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .fourth-part-about-emailing form {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .fourth-part-about-emailing input {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 20rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+  }
+  
+  
+  .fourth-part-about-emailing button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    background-color: #ccd000;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fourth-part-about-emailing button:hover {
+    background-color: #006d97;
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .images-ventajas-competitivas{
+        display: flex;
+        margin: 2rem 0;
+        padding: 0 2rem;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .ventajas-competitivas img{
+        min-width: 80%;
+        max-width: 80%;
+    }
+
+}
+
+/* Small tablets and large smartphones */
+@media (max-width: 768px) {
+    .intro{
+        font-size: 1rem;
+        padding: 0 2rem;
+    }
+    
+    .first-part-about p {
+        padding: 2rem;
+    }
+    .fourth-part-about-emailing>* {
+        width: 80%;
+    }
+
+     .fourth-part-about-emailing form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+     }
+
+     .fourth-part-about-emailing input {
+        width: 90%;
+     }
+     .fourth-part-about-emailing button {
+        width: 90%;
+     }
+}
+/* Smaller smartphones */
+@media (max-width: 480px) {
+    .intro img{
+        width: 80%;
+    }
+
+}
+  
+/* finished about page */

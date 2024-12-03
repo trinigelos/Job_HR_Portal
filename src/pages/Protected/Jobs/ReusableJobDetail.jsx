@@ -66,13 +66,13 @@ export default function ReusableJobDetail({ job, styles }) {
                 </p>
                
             )}
-            {jobData.applicationCode && (
+            {/* {jobData.applicationCode && (
                   <p>
                   <strong>Codigo Ref. Email: </strong>
               {jobData.applicationCode}
           </p>
 
-            )}
+            )} */}
             <div className="apply-links">
                 
             {jobData.linkedinLink && (

@@ -29,7 +29,7 @@
   }
   
   .job-form-component .submit-btn {
-    background-color: #1c418c;
+    background-color: #006d97;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -39,7 +39,7 @@
   }
   
   .job-form-component .submit-btn:hover {
-    background-color: #002a85d5;
+    background-color: #006c97b0;
   }
   
   .update-btn {
@@ -60,11 +60,11 @@
     align-items: center;
     gap: 1.5rem;
     padding: 1rem; 
-    background-color: #1c418c;
+    background-color: #006d97;
 }
 .prediv-postform{
   height: 3.5rem;
-  background-color: #1c418c;
+  background-color: #006d97;
 
 }
 /* undo button */

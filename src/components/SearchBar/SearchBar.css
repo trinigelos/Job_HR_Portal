@@ -5,7 +5,7 @@
     padding: 1.5rem 0 3rem ;
     width: 75vw;
     margin:  10px 1rem;
-    border-bottom: #3a5ba0 solid 3px;
+    border-bottom: #006d97 solid 3px;
 
 }
 
@@ -40,7 +40,7 @@
     border: none;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: #1c418c;
+    background-color: #006d97;
     color: white;
     cursor: pointer;
 }

@@ -1,0 +1,34 @@
+.navbar {
+    height: 6rem;
+    box-shadow: 0 1px 3px rgb(0, 0, 0);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+gap: 2rem;
+padding: 0 0 1rem;
+
+}
+
+.navbar img {
+    height: 5.5rem;
+    padding: 0 2rem;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+.btn-navbar {
+text-decoration: none;
+border: none;
+justify-content: center;
+align-items: center;
+padding: 2rem 1rem 0.5rem;
+margin: 0 ;
+cursor: pointer;
+}
+.btn-navbar:hover{
+    color:#006d97;
+}

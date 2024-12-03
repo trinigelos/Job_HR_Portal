@@ -4,19 +4,6 @@
     overflow: hidden;
     padding: 0 0 3rem 0;
 }
-.navbar {
-    height: 6rem;
-    box-shadow: 0 1px 3px rgb(0, 0, 0);
-    /* position: fixed;
-    width: 100%;
-    background-color: white; */
-
-}
-
-.navbar img {
-    height: 5.5rem;
-    padding: 0 2rem;
-}
 
 .searchbar-div-client {
     display: flex;

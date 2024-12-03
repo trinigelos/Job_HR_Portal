@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
   background-color: rgb(255, 255, 255);
+
 }
 
 .btn{
@@ -20,7 +21,7 @@ body {
 .btn2{
   width: 4rem;
   height: 2rem;
-  background-color: #001e60;
+  background-color: #006d97;
   color: white;
   border-radius: 10px;
   border: none;
@@ -30,7 +31,7 @@ body {
 }
 
 .btn2:hover{
-  background-color: #001e6081;
+  background-color: #006c97b0;
 
 }
 

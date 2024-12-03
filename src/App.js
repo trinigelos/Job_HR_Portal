@@ -19,6 +19,8 @@ import { SearchProvider } from "./components/SearchBar/SearchContext";
 import JobPreview from "./pages/Protected/Jobs/JobPreview";
 import { JobProvider } from "./pages/Protected/Jobs/JobsContext";
 import ReusableJobDetail from "./pages/Protected/Jobs/ReusableJobDetail";
+import AboutPage from "./pages/Client/AboutPage";
+import HomeClient from "./pages/Client/HomeClient";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -112,8 +114,9 @@ export default function App() {
           
     </Route>
 
-        {/* should be unprotected */}
-        <Route path="/clientdashboard/*"
+  {/* should be unprotected */}
+  {/* <Route path > </Route>
+  <Route path="/clientdashboard/*"
           element={
               <SearchProvider><JobProvider>
                 <ClientDashboard />
@@ -121,7 +124,22 @@ export default function App() {
           }>
           <Route path="job/:id" element={<ReusableJobDetail />} />
 
-        </Route>
+        </Route> */}
+
+         {/* should be unprotected */}
+  
+   <Route path="/clientdashboard/*"
+    element={
+      <SearchProvider><JobProvider>
+      <HomeClient />
+      </JobProvider></SearchProvider>
+      }>
+      <Route index element={<Navigate to="about" />} />
+      
+      <Route path= "clientjobs" element={<ClientDashboard />}/>
+      <Route path="clientjobs/job/:id" element={<ReusableJobDetail />} />
+      <Route path= "about" element={<AboutPage />}/>
+      </Route>  
         
         {/* dynamic routing */}
         {routes({ user, authenticate, handleLogout }).map((route) => (

@@ -32,7 +32,7 @@ export const JobProvider = ({ children }) => {
   const location = useLocation();
 
   // Define routes that should not display the admin job preview CSS
-  const clientStylePaths = ['/clientdashboard', "/clientdashboard/job/:jobId"];
+  const clientStylePaths = ['/clientdashboard',  "/clientdashboard/job/:id", "/clientdashboard/clientjobs", "/clientdashboard/clientjobs/:id"];
 
   const matchesClientPath = clientStylePaths.some((path) =>
     matchPath({ path, exact: true }, location.pathname)
