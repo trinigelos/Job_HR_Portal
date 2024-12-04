@@ -136,8 +136,7 @@ export default function App() {
       }>
       <Route index element={<Navigate to="about" />} />
       
-      <Route path= "clientjobs" element={<ClientDashboard />}/>
-      <Route path="clientjobs/job/:id" element={<ReusableJobDetail />} />
+      <Route path= "clientjobs/:id?" element={<ClientDashboard />}  />
       <Route path= "about" element={<AboutPage />}/>
       </Route>  
         

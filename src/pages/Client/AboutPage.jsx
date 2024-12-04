@@ -4,6 +4,7 @@ import mercado_laboral from "./images/mercadolaboral.jpg"
 import networking from "./images/networking.webp"
 import gestion_proceso from "./images/gestion_proceso.png"
 import nombrelogo from "./images/nombrelogo.png"
+import EmailSubscription from "./EmailSubscription"
 
 
 export default function AboutPage() {
@@ -46,13 +47,7 @@ export default function AboutPage() {
    Con el objetivo de brindar un servicio de calidad, nos focalizamos en detectar las necesidades de nuestros clientes, su cultura de y estilos de trabajo.
 Para asegurar la calidad del proceso, contamos con una metodología diseñada por etapas bien definidas, la cual garantiza la excelencia y confiabilidad en los resultados.</p>
 </div>
-<div className="fourth-part-about-emailing">
-  <h1>¿Querés recibir nuestras ofertas de trabajo?</h1>
-  <form>
-    <input type="email" placeholder="Tu email aquí" required />
-    <button type="submit">Suscribirme</button>
-  </form>
-</div>
+<EmailSubscription />
 <img className='portada-gestion-about' src={portada_gestion} alt="" />
 
 </div>

@@ -30,13 +30,11 @@ const Sidebar = ({ handleLogout }) => {
                             PUBLICAR
                         </NavLink>
                 </div>
-                <div className="navlinks-sidebar">
+                <div className= "navlinks-sidebar">
                         <NavLink
                             to="/clientdashboard"
                             target="_blank" 
-                            className={({isActive}) => (isActive
-                            ? "active-tab"
-                            : "not-active sidelinkHover")}>
+                            >
                             PORTAL USUARIO
                         </NavLink>
                     </div>

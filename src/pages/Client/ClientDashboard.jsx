@@ -42,9 +42,9 @@ const ClientDashboard = () => {
 
     // Update the URL whenever `selectedJob` changes and is not null
     useEffect(() => {
-        if (selectedJob) {
-            // Update the URL to include job ID without reloading the page
-            navigate(`/clientdashboard/clientjobs/job/${selectedJob._id}`, { replace: true });
+      if (selectedJob) {
+         // Update the URL to include job ID without reloading the page
+            navigate(`/clientdashboard/clientjobs/${selectedJob._id}`, { replace: true });
         }
     }, [selectedJob, navigate]);
   

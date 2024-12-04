@@ -90,6 +90,16 @@ box-shadow: 1px 6px 12px rgba(0, 0, 0, 0.237);
         width: 80%;
         
         }
+
+        .jobsContainer{
     
+            grid-gap: 0;
+            width: 90vw;
+            padding: 0.5rem;
+        }
+        .jobPostPreview {
+            padding: 0.5rem;
+            height: 190px;
+        }
    
 }

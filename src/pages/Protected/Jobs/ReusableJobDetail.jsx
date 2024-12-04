@@ -7,6 +7,7 @@ import { getJobPost } from "../CRUD/JobPostService";
 export default function ReusableJobDetail({ job, styles }) {
     const { jobId } = useParams(); // Extract jobId from the URL
     const [jobData, setJobData] = useState(job);
+    console.log("renderizando")
 
     // Fetch job details if the job prop is null and there's a jobId in the URL
     useEffect(() => {

@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as USER_HELPERS from '../../../utils/userToken';
 
 const jobService = axios.create({
-  baseURL: `${process.env.REACT_APP_SERVER_URL}/jobposts`, // Correct base URL here
+  baseURL: `${process.env.REACT_APP_SERVER_URL}/jobposts`, 
 });
 
 // Helper function to get Authorization header

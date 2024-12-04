@@ -24,10 +24,7 @@ height: auto;
 
     margin-top: 2rem;
 }
-.main-content{
-    /* margin: 0 0 0 20vw; */
 
-}
 
 .btnCreateJob {
     background-color: #1c418c;
@@ -68,14 +65,18 @@ height: auto;
 /* Tablets and large phones (landscape mode) */
 @media (max-width: 1024px) {
     .trabajos-dashboard {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+       ;
     
     }
 
+   
+    
     .jobsContainer{
         display: flex;
         justify-content: center;
         align-items: center;
+      
     }
 }
 
@@ -124,6 +125,7 @@ height: auto;
     align-items: center; */
 
 }
+
 
 .nav-items{
     display: flex;
